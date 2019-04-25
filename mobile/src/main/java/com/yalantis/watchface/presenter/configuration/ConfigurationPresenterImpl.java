@@ -15,9 +15,6 @@ import com.yalantis.watchface.view.configuration.ConfigurationMvpView;
 
 import java.io.IOException;
 
-/**
- * @author andrewkhristyan on 10/16/15.
- */
 public class ConfigurationPresenterImpl implements ConfigurationPresenter, SendToDataLayerThread.DataLayerListener {
 
     private ConfigurationMvpView mConfigurationView;

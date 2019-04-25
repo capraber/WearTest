@@ -3,9 +3,6 @@ package com.yalantis.watchface;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * @author andrewkhristyan on 10/13/15.
- */
 public class Constants {
 
     public static Map<Integer, String> resourceKeyMap = new HashMap<>();

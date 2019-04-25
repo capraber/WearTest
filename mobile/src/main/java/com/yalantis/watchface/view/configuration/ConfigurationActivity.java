@@ -18,9 +18,6 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-/**
- * @author andrewkhristyan on 10/5/15.
- */
 public class ConfigurationActivity extends BaseGoogleApiActivity implements ConfigurationMvpView {
 
     protected ConfigurationPresenter mConfigurationPresenter = new ConfigurationPresenterImpl();
@@ -50,38 +47,6 @@ public class ConfigurationActivity extends BaseGoogleApiActivity implements Conf
     void onClickChangeBackground() {
         mConfigurationPresenter.changeContentImage(isConnected, Constants.BACKGROUND_CHOOSER);
     }
-
-//    @OnClick(R.id.button_change_second_tick)
-//    void onClickSecondTick() {
-//        mConfigurationPresenter.changeContentImage(isConnected, Constants.SECOND_CHOOSER);
-//    }
-
-//    @OnClick(R.id.button_change_hours_ticks)
-//    void onClickHourTicks() {
-//        mConfigurationPresenter.changeContentImage(isConnected, Constants.HOUR_CHOOSER);
-//    }
-
-//    @OnClick(R.id.button_change_minute_ticks)
-//    void onClickMinuteTicks() {
-//        mConfigurationPresenter.changeContentImage(isConnected, Constants.MINUTE_CHOOSER);
-//    }
-
-//    @OnClick(R.id.button_change_save_configuration)
-//    void onClickSaveConfig() {
-//        mConfigurationPresenter.saveConfig();
-//        Snackbar.make(linearLayoutRoot, getString(R.string.saved_message), Snackbar.LENGTH_SHORT)
-//                .show();
-//    }
-
-//    @OnClick(R.id.button_ticks_configuration)
-//    void onClickTicksConfiguration() {
-//        startActivity(TickSetupActivity.newActivity(this));
-//    }
-
-//    @OnClick(R.id.button_ambient)
-//    void onClickAmbient() {
-//        startActivity(ConfigurationAmbientActivity.newActivity(this));
-//    }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {

@@ -4,9 +4,6 @@ import android.app.Application;
 
 import com.yalantis.watchface.manager.ConfigurationManager;
 
-/**
- * @author andrewkhristyan on 10/21/15.
- */
 public class App extends Application{
 
     private static ConfigurationManager configurationManager = new ConfigurationManager();

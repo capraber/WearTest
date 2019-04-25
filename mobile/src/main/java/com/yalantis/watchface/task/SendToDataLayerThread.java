@@ -10,9 +10,6 @@ import com.google.android.gms.wearable.Wearable;
 
 import java.io.ByteArrayOutputStream;
 
-/**
- * @author andrewkhristyan on 10/16/15.
- */
 public class SendToDataLayerThread extends Thread {
 
     private static final int MAX_SIZE = 2000000;

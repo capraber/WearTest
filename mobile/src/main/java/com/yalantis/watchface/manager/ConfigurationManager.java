@@ -24,9 +24,6 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * @author andrewkhristyan on 10/21/15.
- */
 public class ConfigurationManager {
 
     private static final String DEFAULT_JSON_CONFIGURATION = "{seconds_offset:0,minutes_offset:0,hours_offset:0}";
@@ -81,16 +78,6 @@ public class ConfigurationManager {
         return jsonObject;
     }
 
-    public void updateConfigurationParameter(String key, int data) {
-        if (mJsonObjectConfig != null) {
-            try {
-                mJsonObjectConfig.put(key, data);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
 
     private void fillMap(Resources resources) {
         configMap.put(BACKGROUND, BitmapFactory.decodeResource(resources, R.drawable.bg));
@@ -105,10 +92,6 @@ public class ConfigurationManager {
     public void updateField(int name, Bitmap bitmap) {
         String key = Constants.resourceKeyMap.get(name);
         configMap.put(key, bitmap);
-    }
-
-    public void resetWatchFace(Resources resources) {
-        fillMap(resources);
     }
 
     public void saveConfiguration() {
@@ -137,15 +120,6 @@ public class ConfigurationManager {
         writer.close();
     }
 
-    public int getConfigItem(String key) {
-        int configItem = 0;
-        try {
-            configItem = mJsonObjectConfig.getInt(key);
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        return configItem;
-    }
 
 
     private File getOutputMediaFile(String fileName) {

@@ -15,9 +15,6 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-/**
- * @author andrewkhristyan on 10/27/15.
- */
 public class ConfigurationAmbientActivity extends BaseGoogleApiActivity implements ConfigurationMvpView{
 
     @Bind(R.id.toolbar)

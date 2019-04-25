@@ -7,9 +7,6 @@ import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.wearable.Wearable;
 
-/**
- * @author andrewkhristyan on 10/23/15.
- */
 public abstract class BaseGoogleApiActivity extends AppCompatActivity implements GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener{
 
     protected GoogleApiClient mGoogleApiClient;
