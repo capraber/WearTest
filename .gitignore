@@ -1,23 +1,46 @@
-# Compiled class file
+# svn
+*.svn*
+
+# built application files
+*.apk
+*.ap_
+
+# files for the dex VM
+*.dex
+
+# Java class files
 *.class
 
-# Log file
-*.log
+# generated GUI files
+*/R.java
 
-# BlueJ files
-*.ctxt
+# generated folder
+bin
+gen
 
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
+# local
+local.properties
 
-# Package Files #
-*.jar
-*.war
-*.nar
-*.ear
+proguard_logs/
+
+# log files
+log*.txt
+
+# archives
+*.gz
+*.tar
 *.zip
-*.tar.gz
-*.rar
 
-# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
-hs_err_pid*
+# eclipse
+*.metadata
+*.settings
+*.prefs
+
+#idea
+*.idea
+.idea/
+*.iml
+out/
+
+build/
+.gradle/
