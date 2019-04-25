@@ -1,4 +1,4 @@
-package com.yalantis.watchface.sevrice;
+package com.yalantis.watchface.service;
 
 import android.content.Context;
 import android.content.res.Resources;
@@ -11,7 +11,7 @@ import com.yalantis.watchface.R;
 import java.util.HashMap;
 import java.util.Map;
 
-public class EagleWatchFaceService extends AbstractAmericanAnalogWatchFaceService {
+public class InitialWatchFaceService extends AbstractAnalogWatchFaceService {
     private Map<String, Bitmap> map = new HashMap<>();
 
     @Override
