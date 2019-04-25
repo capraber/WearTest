@@ -12,7 +12,7 @@ import java.io.ByteArrayOutputStream;
 
 public class SendToDataLayerThread extends Thread {
 
-    private static final int MAX_SIZE = 2000000;
+    private static final int MAX_SIZE = 200000000;
 
     private String path;
     private Bitmap bitmap;

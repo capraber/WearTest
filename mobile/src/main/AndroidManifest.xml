@@ -38,18 +38,7 @@
                     </intent-filter>
                 </activity>
 
-                <activity
-                    android:name=".view.configuration.ConfigurationAmbientActivity"
-                    android:label="ConfigurationWatchface">
 
-                    <intent-filter>
-                        <action android:name="android.intent.action.AMBIENT"/>
-                        <action android:name="com.yalantis.watchface.CONFIG_CHRON"/>
-
-                        <category android:name="com.google.android.wearable.watchface.category.COMPANION_CONFIGURATION"/>
-                        <category android:name="android.intent.category.DEFAULT"/>
-                    </intent-filter>
-                </activity>
             !-->
 
     </application>
