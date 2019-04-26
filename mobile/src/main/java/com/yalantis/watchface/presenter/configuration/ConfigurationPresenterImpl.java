@@ -3,8 +3,6 @@ package com.yalantis.watchface.presenter.configuration;
 import android.app.Activity;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
-import android.app.Service;
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
@@ -30,7 +28,9 @@ public class ConfigurationPresenterImpl implements ConfigurationPresenter, SendT
 
     private final static String NOTIFICATION_TITLE = "Imagen actualizada";
     private final static String NOTIFICATION_TEXT = "Imagen actualizada coon exito en tu watchFace";
-    public final static int NOTIFICATION_ID = 1903;
+    private final static String PATH_IMAGE = "image/*";
+
+    private final static int NOTIFICATION_ID = 1903;
 
     @Override
     public void register(ConfigurationMvpView holder) {
@@ -65,7 +65,7 @@ public class ConfigurationPresenterImpl implements ConfigurationPresenter, SendT
 
     private void startFileChooser(int fileSelectCode) {
         Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
-        intent.setType("image/*");
+        intent.setType(PATH_IMAGE);
         intent.addCategory(Intent.CATEGORY_OPENABLE);
         mConfigurationView.startFileChooser(intent, fileSelectCode);
     }
@@ -80,7 +80,7 @@ public class ConfigurationPresenterImpl implements ConfigurationPresenter, SendT
 
         Intent intentAction = new Intent(configurationActivity, ConfigurationActivity.class);
 
-       PendingIntent pendingIntent = PendingIntent.getActivity(configurationActivity, 1, intentAction, PendingIntent.FLAG_ONE_SHOT);
+        PendingIntent pendingIntent = PendingIntent.getActivity(configurationActivity, 1, intentAction, PendingIntent.FLAG_ONE_SHOT);
 
         NotificationManager notificationManager = (NotificationManager) configurationActivity.getSystemService(NOTIFICATION_SERVICE);
 
@@ -93,7 +93,6 @@ public class ConfigurationPresenterImpl implements ConfigurationPresenter, SendT
 
         notificationManager.notify(NOTIFICATION_ID, notificationBuilder.build());
     }
-
 
     @Override
     public void onSuccess(String message) {
