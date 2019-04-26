@@ -18,6 +18,7 @@
     <Button
         android:id="@+id/button_change_background"
         style="@style/Button.Option"
-        android:text="@string/str_change_background" />
+        android:text="@string/str_change_background"
+        android:onClick="onClickChangeBackground"/>
 
 </LinearLayout>

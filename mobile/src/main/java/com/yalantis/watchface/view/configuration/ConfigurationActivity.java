@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.NotificationCompat;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
 import android.widget.LinearLayout;
 
 import com.yalantis.watchface.Constants;
@@ -18,9 +19,9 @@ import com.yalantis.watchface.presenter.configuration.ConfigurationPresenterImpl
 import com.yalantis.watchface.view.BaseGoogleApiActivity;
 //import com.yalantis.watchface.view.ticks_options.TickSetupActivity;
 
-import butterknife.Bind;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
+//import butterknife.Bind;
+//import butterknife.ButterKnife;
+//import butterknife.OnClick;
 
 public class ConfigurationActivity extends BaseGoogleApiActivity implements ConfigurationMvpView {
 
@@ -28,16 +29,19 @@ public class ConfigurationActivity extends BaseGoogleApiActivity implements Conf
     private final static String NOTIFICATION_CHANNEL = "channel_name";
     private final static String CHANNEL_DESCRIPTION = "channel_description";
     public final static int NOTIFICATION_ID = 1903;
-    @Bind(R.id.toolbar)
+//    @Bind(R.id.toolbar)
     Toolbar toolbar;
-    @Bind(R.id.linear_layout_root)
+//    @Bind(R.id.linear_layout_root)
     LinearLayout linearLayoutRoot;
     NotificationCompat.Builder notificacion;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_configuration);
-        ButterKnife.bind(this);
+//        ButterKnife.bind(this);
+        toolbar = findViewById(R.id.toolbar);
+        linearLayoutRoot = findViewById(R.id.linear_layout_root);
+
         setSupportActionBar(toolbar);
         setTitle(getString(R.string.main_label));
         mConfigurationPresenter.register(this);
@@ -51,8 +55,8 @@ public class ConfigurationActivity extends BaseGoogleApiActivity implements Conf
         mConfigurationPresenter.unregister(this);
     }
 
-    @OnClick(R.id.button_change_background)
-    void onClickChangeBackground() {
+//    @OnClick(R.id.button_change_background)
+    void onClickChangeBackground(View view) {
         mConfigurationPresenter.changeContentImage(isConnected, Constants.BACKGROUND_CHOOSER);
         //mConfigurationPresenter.sendNotification(this);
     }
