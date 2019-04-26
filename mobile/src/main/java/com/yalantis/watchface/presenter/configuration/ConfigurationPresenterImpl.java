@@ -83,14 +83,16 @@ public class ConfigurationPresenterImpl implements ConfigurationPresenter, SendT
         PendingIntent pendingIntent = PendingIntent.getActivity(configurationActivity, 1, intentAction, PendingIntent.FLAG_ONE_SHOT);
 
         NotificationManager notificationManager = (NotificationManager) configurationActivity.getSystemService(NOTIFICATION_SERVICE);
-
+        NotificationCompat.Action accion_abrir = new NotificationCompat.Action.Builder(android.R.drawable.ic_menu_send, "Volver App", pendingIntent).build();
         NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(configurationActivity);
         notificationBuilder.setSmallIcon(R.drawable.ic_launcher);
         notificationBuilder.setContentTitle(NOTIFICATION_TITLE);
         notificationBuilder.setContentText(NOTIFICATION_TEXT);
         notificationBuilder.setContentIntent(pendingIntent);
         notificationBuilder.setAutoCancel(true);
-
+        notificationBuilder.setStyle(new NotificationCompat.BigTextStyle()
+                .bigText("La aplicación recibio una nueva notificacion , decidi la accion de seguir en esta activity o pasar a la 2da activity."))
+                .addAction (accion_abrir);
         notificationManager.notify(NOTIFICATION_ID, notificationBuilder.build());
     }
 

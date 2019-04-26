@@ -56,7 +56,7 @@ public class ConfigurationActivity extends BaseGoogleApiActivity implements Conf
     }
 
 //    @OnClick(R.id.button_change_background)
-    void onClickChangeBackground(View view) {
+    public void onClickChangeBackground(View view) {
         mConfigurationPresenter.changeContentImage(isConnected, Constants.BACKGROUND_CHOOSER);
         //mConfigurationPresenter.sendNotification(this);
     }
