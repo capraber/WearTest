@@ -1,8 +1,7 @@
-package com.yalantis.watchface.sevrice;
+package com.yalantis.watchface.service;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.support.wearable.watchface.WatchFaceStyle;
 
 import com.google.android.gms.wearable.MessageEvent;
 import com.yalantis.watchface.events.WatchfaceUpdatedEvent;

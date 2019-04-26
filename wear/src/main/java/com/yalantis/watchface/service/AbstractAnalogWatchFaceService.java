@@ -1,4 +1,4 @@
-package com.yalantis.watchface.sevrice;
+package com.yalantis.watchface.service;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -26,7 +26,7 @@ import java.util.concurrent.TimeUnit;
 
 import de.greenrobot.event.EventBus;
 
-public abstract class AbstractAmericanAnalogWatchFaceService extends CanvasWatchFaceService {
+public abstract class AbstractAnalogWatchFaceService extends CanvasWatchFaceService {
 
     protected abstract Context getContext();
 
@@ -129,7 +129,7 @@ public abstract class AbstractAmericanAnalogWatchFaceService extends CanvasWatch
             mHandPaint.setStrokeCap(Paint.Cap.ROUND);
             calendar = Calendar.getInstance();
 
-            setWatchFaceStyle(new WatchFaceStyle.Builder(AbstractAmericanAnalogWatchFaceService.this)
+            setWatchFaceStyle(new WatchFaceStyle.Builder(AbstractAnalogWatchFaceService.this)
                     .setCardPeekMode(WatchFaceStyle.PEEK_MODE_SHORT)
                     .setBackgroundVisibility(WatchFaceStyle.BACKGROUND_VISIBILITY_INTERRUPTIVE)
                     .setShowSystemUiTime(false)
@@ -316,7 +316,7 @@ public abstract class AbstractAmericanAnalogWatchFaceService extends CanvasWatch
             }
             registerReceiverFlag = true;
             IntentFilter intentFilter = new IntentFilter(Intent.ACTION_TIMEZONE_CHANGED);
-            AbstractAmericanAnalogWatchFaceService.this.registerReceiver(timeZoneReceiver, intentFilter);
+            AbstractAnalogWatchFaceService.this.registerReceiver(timeZoneReceiver, intentFilter);
         }
 
         /**
@@ -327,7 +327,7 @@ public abstract class AbstractAmericanAnalogWatchFaceService extends CanvasWatch
                 return;
             }
             registerReceiverFlag = false;
-            AbstractAmericanAnalogWatchFaceService.this.unregisterReceiver(timeZoneReceiver);
+            AbstractAnalogWatchFaceService.this.unregisterReceiver(timeZoneReceiver);
         }
 
         /**
