@@ -16,4 +16,6 @@
     <string name="str_hours_offset">Hours offset</string>
     <string name="main_label">Configuration watchface</string>
     <string name="saved_message">Configuration has been saved</string>
+    <string name="title_notification">Imagen actualizada</string>
+    <string name="text_notification">Imagen actualizada en tu watchFace</string>
 </resources>

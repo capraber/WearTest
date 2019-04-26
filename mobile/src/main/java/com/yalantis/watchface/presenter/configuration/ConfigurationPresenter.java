@@ -4,6 +4,7 @@ import android.content.Intent;
 
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.yalantis.watchface.presenter.Presenter;
+import com.yalantis.watchface.view.configuration.ConfigurationActivity;
 import com.yalantis.watchface.view.configuration.ConfigurationMvpView;
 
 public interface ConfigurationPresenter extends Presenter<ConfigurationMvpView> {
@@ -14,4 +15,5 @@ public interface ConfigurationPresenter extends Presenter<ConfigurationMvpView> 
 
     void saveConfig();
 
+    void sendNotification(ConfigurationActivity configurationActivity);
 }
