@@ -23,10 +23,10 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-import static com.yalantis.watchface.Constants.DRAWABLE_CONFIGURATION;
-import static com.yalantis.watchface.Constants.FILE_CONFIGURATION;
-import static com.yalantis.watchface.Constants.PATH_CONFIGURATION;
-import static com.yalantis.watchface.Constants.PATH_EXTENSION;
+import static com.yalantis.watchface.ConstantsKt.DRAWABLE_CONFIGURATION;
+import static com.yalantis.watchface.ConstantsKt.FILE_CONFIGURATION;
+import static com.yalantis.watchface.ConstantsKt.PATH_CONFIGURATION;
+import static com.yalantis.watchface.ConstantsKt.PATH_EXTENSION;
 
 public class ConfigurationManager {
 
@@ -93,7 +93,7 @@ public class ConfigurationManager {
     }
 
     public void updateField(int name, Bitmap bitmap) {
-        String key = Constants.resourceKeyMap.get(name);
+        String key = Constants.INSTANCE.getResourceKeyMap().get(name);
         configMap.put(key, bitmap);
     }
 
