@@ -7,6 +7,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v4.app.NotificationCompat;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.Button;
 import android.widget.LinearLayout;
 
 import com.yalantis.watchface.Constants;
@@ -21,7 +22,6 @@ public class ConfigurationActivity extends BaseGoogleApiActivity implements Conf
     Toolbar toolbar;
     LinearLayout linearLayoutRoot;
     NotificationCompat.Builder notificacion;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,6 +34,7 @@ public class ConfigurationActivity extends BaseGoogleApiActivity implements Conf
         mConfigurationPresenter.register(this);
         notificacion = new NotificationCompat.Builder(this);
         notificacion.setAutoCancel(true);
+
     }
 
     @Override

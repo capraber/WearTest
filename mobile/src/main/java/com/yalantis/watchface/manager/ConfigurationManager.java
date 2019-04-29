@@ -6,7 +6,6 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Environment;
 import android.support.annotation.Nullable;
-import android.util.Log;
 
 import com.yalantis.watchface.Constants;
 import com.yalantis.watchface.R;
@@ -23,6 +22,11 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+
+import static com.yalantis.watchface.Constants.DRAWABLE_CONFIGURATION;
+import static com.yalantis.watchface.Constants.FILE_CONFIGURATION;
+import static com.yalantis.watchface.Constants.PATH_CONFIGURATION;
+import static com.yalantis.watchface.Constants.PATH_EXTENSION;
 
 public class ConfigurationManager {
 
@@ -50,11 +54,11 @@ public class ConfigurationManager {
         StringBuilder builder = new StringBuilder();
         JSONObject jsonObject = null;
         try {
-            File sdcard = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "/configuration/");
+            File sdcard = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + PATH_CONFIGURATION);
             if (!sdcard.exists()) {
                 sdcard.mkdirs();
             }
-            mJsonFile = new File(sdcard, "configuration.json");
+            mJsonFile = new File(sdcard, FILE_CONFIGURATION);
             if (!mJsonFile.exists()) {
                 FileWriter writer = new FileWriter(mJsonFile);
                 writer.append(DEFAULT_JSON_CONFIGURATION);
@@ -105,9 +109,9 @@ public class ConfigurationManager {
                 fos.close();
                 updateConfigurationFile();
             } catch (FileNotFoundException e) {
-                Log.d("Configuration", "File not found: " + e.getMessage());
+                //TODO not implemented
             } catch (IOException e) {
-                Log.d("Configuration", "Error accessing file: " + e.getMessage());
+                //TODO not implemented
             }
         }
     }
@@ -121,11 +125,11 @@ public class ConfigurationManager {
 
     private File getOutputMediaFile(String fileName) {
         File mediaStorageDir = new File(Environment.getExternalStorageDirectory().getAbsolutePath()
-                + "/drawable-nodpi/");
+                + DRAWABLE_CONFIGURATION);
         if (!mediaStorageDir.exists()) {
             mediaStorageDir.mkdirs();
         }
-        File mediaFile = new File(mediaStorageDir.getPath() + File.separator + fileName + ".png");
+        File mediaFile = new File(mediaStorageDir.getPath() + File.separator + fileName + PATH_EXTENSION);
         return mediaFile;
     }
 
