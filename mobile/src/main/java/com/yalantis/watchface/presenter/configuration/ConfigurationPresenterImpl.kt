@@ -33,7 +33,7 @@ class ConfigurationPresenterImpl : ConfigurationPresenter, SendToDataLayerThread
         private const val REQUEST_CODE = 1
     }
 
-    private var mConfigurationView: ConfigurationMvpView? = null
+    private lateinit var mConfigurationView: ConfigurationMvpView
 
     private lateinit var bitmap: Bitmap
 
@@ -42,14 +42,14 @@ class ConfigurationPresenterImpl : ConfigurationPresenter, SendToDataLayerThread
     }
 
     override fun unregister(holder: ConfigurationMvpView) {
-        mConfigurationView = null
+        mConfigurationView = ConfigurationActivity()
     }
 
     override fun onActivityResult(resultCode: Int, data: Intent, requestCode: Int, googleApiClient: GoogleApiClient) {
         try {
             if (resultCode == Activity.RESULT_OK) {
                 val selectedImageUri = data.data
-                bitmap = MediaStore.Images.Media.getBitmap(mConfigurationView!!.getContext().contentResolver, selectedImageUri)
+                bitmap = MediaStore.Images.Media.getBitmap(mConfigurationView.getContext().contentResolver, selectedImageUri)
                 App.configurationManager.updateField(requestCode, bitmap)
                 Constants.resourceKeyMap[requestCode]?.let { SendToDataLayerThread(it, bitmap, googleApiClient, this).start() }
             }
@@ -69,11 +69,10 @@ class ConfigurationPresenterImpl : ConfigurationPresenter, SendToDataLayerThread
         val intent = Intent(Intent.ACTION_GET_CONTENT)
         intent.type = PATH_IMAGE
         intent.addCategory(Intent.CATEGORY_OPENABLE)
-        mConfigurationView!!.startFileChooser(intent, fileSelectCode)
+        mConfigurationView.startFileChooser(intent, fileSelectCode)
     }
 
     override fun saveConfig() {
-        //App.getConfigurationManager().saveConfiguration();
         App.configurationManager.saveConfiguration()
     }
 
@@ -99,6 +98,6 @@ class ConfigurationPresenterImpl : ConfigurationPresenter, SendToDataLayerThread
     }
 
     override fun onSuccess(message: String) {
-        mConfigurationView!!.showStatusMessage(message)
+        mConfigurationView.showStatusMessage(message)
     }
 }
