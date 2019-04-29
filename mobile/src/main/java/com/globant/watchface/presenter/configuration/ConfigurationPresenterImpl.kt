@@ -1,4 +1,4 @@
-package com.yalantis.watchface.presenter.configuration
+package com.globant.watchface.presenter.configuration
 
 import android.app.Activity
 import android.app.NotificationChannel
@@ -11,12 +11,12 @@ import android.provider.MediaStore
 import android.support.v4.app.NotificationCompat
 import android.util.Log
 import com.google.android.gms.common.api.GoogleApiClient
-import com.yalantis.watchface.App
-import com.yalantis.watchface.Constants
-import com.yalantis.watchface.R
-import com.yalantis.watchface.task.SendToDataLayerThread
-import com.yalantis.watchface.view.configuration.ConfigurationActivity
-import com.yalantis.watchface.view.configuration.ConfigurationMvpView
+import com.globant.watchface.App
+import com.globant.watchface.Constants
+import com.globant.watchface.R
+import com.globant.watchface.task.SendToDataLayerThread
+import com.globant.watchface.view.configuration.ConfigurationActivity
+import com.globant.watchface.view.configuration.ConfigurationMvpView
 import java.io.IOException
 
 class ConfigurationPresenterImpl : ConfigurationPresenter, SendToDataLayerThread.DataLayerListener {

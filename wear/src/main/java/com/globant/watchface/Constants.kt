@@ -1,4 +1,4 @@
-package com.yalantis.watchface
+package com.globant.watchface
 
 const val BG_BUNDLE_FLAG = "bg"
 const val SEC_TICK_BUNDLE_FLAG = "tick"

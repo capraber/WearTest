@@ -1,9 +1,9 @@
-package com.yalantis.watchface.service
+package com.globant.watchface.service
 
 import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
-import com.yalantis.watchface.*
+import com.globant.watchface.*
 import java.util.HashMap
 
 class InitialWatchFaceService : AbstractAnalogWatchFaceService() {

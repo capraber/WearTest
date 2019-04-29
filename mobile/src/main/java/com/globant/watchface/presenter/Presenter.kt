@@ -1,6 +1,6 @@
-package com.yalantis.watchface.presenter
+package com.globant.watchface.presenter
 
-import com.yalantis.watchface.view.MvpView
+import com.globant.watchface.view.MvpView
 
 interface Presenter<T : MvpView> {
 

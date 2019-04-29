@@ -1,4 +1,4 @@
-package com.yalantis.watchface
+package com.globant.watchface
 
 import java.util.*
 

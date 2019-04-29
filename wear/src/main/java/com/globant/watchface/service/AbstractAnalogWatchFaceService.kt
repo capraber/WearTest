@@ -1,4 +1,4 @@
-package com.yalantis.watchface.service
+package com.globant.watchface.service
 
 import android.content.BroadcastReceiver
 import android.content.Context
@@ -12,8 +12,8 @@ import android.support.wearable.watchface.CanvasWatchFaceService
 import android.support.wearable.watchface.WatchFaceStyle
 import android.util.Log
 import android.view.SurfaceHolder
-import com.yalantis.watchface.*
-import com.yalantis.watchface.events.WatchfaceUpdatedEvent
+import com.globant.watchface.*
+import com.globant.watchface.events.WatchfaceUpdatedEvent
 import de.greenrobot.event.EventBus
 import java.util.*
 import java.util.concurrent.TimeUnit

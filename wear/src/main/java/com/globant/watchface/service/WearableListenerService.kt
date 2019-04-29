@@ -1,9 +1,9 @@
-package com.yalantis.watchface.service
+package com.globant.watchface.service
 
 import android.graphics.BitmapFactory
 import android.util.Log
 import com.google.android.gms.wearable.MessageEvent
-import com.yalantis.watchface.events.WatchfaceUpdatedEvent
+import com.globant.watchface.events.WatchfaceUpdatedEvent
 import de.greenrobot.event.EventBus
 
 class WearableListenerService : com.google.android.gms.wearable.WearableListenerService() {

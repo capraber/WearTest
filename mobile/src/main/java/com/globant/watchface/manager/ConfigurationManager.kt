@@ -1,11 +1,11 @@
-package com.yalantis.watchface.manager
+package com.globant.watchface.manager
 
 import android.content.Context
 import android.content.res.Resources
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.os.Environment
-import com.yalantis.watchface.*
+import com.globant.watchface.*
 import org.json.JSONException
 import org.json.JSONObject
 import java.io.*
