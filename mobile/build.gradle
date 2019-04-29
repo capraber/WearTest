@@ -7,7 +7,7 @@ apply plugin: 'kotlin-android-extensions'
 android {
     signingConfigs {
         signing {
-            keyAlias 'Yalantis'
+            keyAlias 'Globant'
             keyPassword 'android123'
             storeFile file('../key/key.jks')
             storePassword 'android123'

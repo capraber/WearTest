@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Independent WatchFace</string>
+    <string name="app_name">Globber WatchFace</string>
     <string name="select_file">Select a File to Upload</string>
     <string name="str_change_background">Change background</string>
     <string name="str_change_hours">Change hour tick</string>
@@ -14,7 +14,7 @@
     <string name="str_seconds_offset">Seconds offset</string>
     <string name="str_minute_offset">Minute offset</string>
     <string name="str_hours_offset">Hours offset</string>
-    <string name="main_label">Configuration watchface</string>
+    <string name="main_label">Globber watchface</string>
     <string name="saved_message">Configuration has been saved</string>
     <string name="title_notification">Imagen actualizada</string>
     <string name="text_notification">Imagen actualizada en tu watchFace</string>

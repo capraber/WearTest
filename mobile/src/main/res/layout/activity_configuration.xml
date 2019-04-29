@@ -12,21 +12,26 @@
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="@color/toolbar_color"
+        app:title="@string/app_name"
         app:layout_collapseMode="pin"
         app:popupTheme="@style/AppTheme.PopupOverlay" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center">
+        <Button
+            android:id="@+id/button_change_background"
+            style="@style/Button.Option"
+            android:layout_marginStart="10dp"
+            android:text="@string/str_change_background"/>
 
-    <Button
-        android:id="@+id/button_change_background"
-        style="@style/Button.Option"
-        android:text="@string/str_change_background"/>
-    <Button
-        android:id="@+id/button_change_save_configuration"
-        style="@style/Button.BaseWidth"
-        android:layout_marginLeft="@dimen/margin_buttons"
-        android:layout_marginRight="@dimen/margin_buttons"
-        android:layout_marginTop="@dimen/margin_save_top"
-        android:background="@drawable/selector_button_save"
-        android:text="@string/str_save_config"
-        android:textColor="@android:color/black"
-        android:textSize="@dimen/buttons_text_size"/>
+        <Button
+            android:id="@+id/button_change_save_configuration"
+            style="@style/Button.Option"
+            android:layout_gravity="bottom"
+            android:background="@color/accent_material_light"
+            android:text="@string/str_save_config" />
+    </LinearLayout>
+
 </LinearLayout>
