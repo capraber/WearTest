@@ -39,16 +39,14 @@ public class ConfigurationActivity extends BaseGoogleApiActivity implements Conf
         btn_images.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mConfigurationPresenter.changeContentImage(isConnected, Constants.BACKGROUND_CHOOSER);
+                onClickChangeBackground(view);
             }
         });
-        btn_images = findViewById(R.id.button_change_save_configuration);
+        btn_store = findViewById(R.id.button_change_save_configuration);
         btn_store.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mConfigurationPresenter.saveConfig();
-                Snackbar.make(linearLayoutRoot, getString(R.string.saved_message), Snackbar.LENGTH_SHORT)
-                        .show();
+                onClickSaveConfig(view);
             }
         });
     }
@@ -59,15 +57,15 @@ public class ConfigurationActivity extends BaseGoogleApiActivity implements Conf
         mConfigurationPresenter.unregister(this);
     }
 
-//    public void onClickChangeBackground(View view) {
-//        mConfigurationPresenter.changeContentImage(isConnected, Constants.BACKGROUND_CHOOSER);
-//    }
+    public void onClickChangeBackground(View view) {
+        mConfigurationPresenter.changeContentImage(isConnected, Constants.BACKGROUND_CHOOSER);
+    }
 
-//    public void onClickSaveConfig(View view) {
-//        mConfigurationPresenter.saveConfig();
-//        Snackbar.make(linearLayoutRoot, getString(R.string.saved_message), Snackbar.LENGTH_SHORT)
-//                .show();
-//    }
+    public void onClickSaveConfig(View view) {
+        mConfigurationPresenter.saveConfig();
+        Snackbar.make(linearLayoutRoot, getString(R.string.saved_message), Snackbar.LENGTH_SHORT)
+                .show();
+    }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
