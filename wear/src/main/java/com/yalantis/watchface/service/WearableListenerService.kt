@@ -10,12 +10,16 @@ class WearableListenerService : com.google.android.gms.wearable.WearableListener
 
     override fun onMessageReceived(messageEvent: MessageEvent) {
         Log.i("WearableListenerService","messageReceived")
-        if (messageEvent.path.contains("offset")) {
+
+        val offset = 0
+        val offset_path = "offset"
+
+        if (messageEvent.path.contains(offset_path)) {
             EventBus.getDefault()
                 .post(WatchfaceUpdatedEvent(messageEvent.path, Integer.parseInt(String(messageEvent.data))))
         } else {
             val message = messageEvent.data
-            val bitmap = BitmapFactory.decodeByteArray(message, 0, message.size, null)
+            val bitmap = BitmapFactory.decodeByteArray(message, offset, message.size, null)
             EventBus.getDefault().post(WatchfaceUpdatedEvent(messageEvent.path, bitmap))
         }
     }
