@@ -99,7 +99,6 @@ public class ConfigurationPresenterImpl implements ConfigurationPresenter, SendT
         notificationBuilder.setAutoCancel(true);
 
         notificationManager.notify(NOTIFICATION_ID, notificationBuilder.build());
-
     }
 
     @Override
