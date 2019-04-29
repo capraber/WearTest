@@ -14,10 +14,10 @@ public class Constants {
     public static final int HOUR_AMBIENT = 6;
     public static final int MINUTE_AMBIENT = 7;
 
-    public static final String PATH_CONFIGURATION ="/configuration/";
-    public static final String FILE_CONFIGURATION ="configuration.json";
-    public static final String DRAWABLE_CONFIGURATION ="/drawable-nodpi/";
-    public static final String PATH_EXTENSION =".png";
+    public static final String PATH_CONFIGURATION = "/configuration/";
+    public static final String FILE_CONFIGURATION = "configuration.json";
+    public static final String DRAWABLE_CONFIGURATION = "/drawable-nodpi/";
+    public static final String PATH_EXTENSION = ".png";
 
     static {
         resourceKeyMap.put(SECOND_CHOOSER, "tick");

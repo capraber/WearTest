@@ -38,7 +38,7 @@ public class ConfigurationManager {
     public static final String HOURS = "hours";
     public static final String HOURS_AMBIENT = "hrs_ambient";
     public static final String MIN_AMBIENT = "min_ambient";
-
+    public static final int ITEM_CONFIG = 0;
     private Map<String, Bitmap> configMap = new HashMap<>();
     private JSONObject mJsonObjectConfig;
     private File mJsonFile;
@@ -134,7 +134,7 @@ public class ConfigurationManager {
     }
 
     public int getConfigItem(String key) {
-        int configItem = 0;
+        int configItem = ITEM_CONFIG;
         try {
             configItem = mJsonObjectConfig.getInt(key);
         } catch (JSONException e) {

@@ -22,6 +22,7 @@ public class ConfigurationActivity extends BaseGoogleApiActivity implements Conf
     Toolbar toolbar;
     LinearLayout linearLayoutRoot;
     NotificationCompat.Builder notificacion;
+    Button btn_images, btn_store;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,7 +35,22 @@ public class ConfigurationActivity extends BaseGoogleApiActivity implements Conf
         mConfigurationPresenter.register(this);
         notificacion = new NotificationCompat.Builder(this);
         notificacion.setAutoCancel(true);
-
+        btn_images = findViewById(R.id.button_change_background);
+        btn_images.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mConfigurationPresenter.changeContentImage(isConnected, Constants.BACKGROUND_CHOOSER);
+            }
+        });
+        btn_images = findViewById(R.id.button_change_save_configuration);
+        btn_store.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mConfigurationPresenter.saveConfig();
+                Snackbar.make(linearLayoutRoot, getString(R.string.saved_message), Snackbar.LENGTH_SHORT)
+                        .show();
+            }
+        });
     }
 
     @Override
@@ -43,15 +59,15 @@ public class ConfigurationActivity extends BaseGoogleApiActivity implements Conf
         mConfigurationPresenter.unregister(this);
     }
 
-    public void onClickChangeBackground(View view) {
-        mConfigurationPresenter.changeContentImage(isConnected, Constants.BACKGROUND_CHOOSER);
-    }
+//    public void onClickChangeBackground(View view) {
+//        mConfigurationPresenter.changeContentImage(isConnected, Constants.BACKGROUND_CHOOSER);
+//    }
 
-    public void onClickSaveConfig(View view) {
-        mConfigurationPresenter.saveConfig();
-        Snackbar.make(linearLayoutRoot, getString(R.string.saved_message), Snackbar.LENGTH_SHORT)
-                .show();
-    }
+//    public void onClickSaveConfig(View view) {
+//        mConfigurationPresenter.saveConfig();
+//        Snackbar.make(linearLayoutRoot, getString(R.string.saved_message), Snackbar.LENGTH_SHORT)
+//                .show();
+//    }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
