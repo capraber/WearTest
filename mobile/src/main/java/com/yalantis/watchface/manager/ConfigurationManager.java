@@ -78,7 +78,6 @@ public class ConfigurationManager {
         return jsonObject;
     }
 
-
     private void fillMap(Resources resources) {
         configMap.put(BACKGROUND, BitmapFactory.decodeResource(resources, R.drawable.bg));
         configMap.put(BG_AMBIENT, BitmapFactory.decodeResource(resources, R.drawable.bg_ambient));
@@ -120,8 +119,6 @@ public class ConfigurationManager {
         writer.close();
     }
 
-
-
     private File getOutputMediaFile(String fileName) {
         File mediaStorageDir = new File(Environment.getExternalStorageDirectory().getAbsolutePath()
                 + "/drawable-nodpi/");
@@ -131,4 +128,15 @@ public class ConfigurationManager {
         File mediaFile = new File(mediaStorageDir.getPath() + File.separator + fileName + ".png");
         return mediaFile;
     }
+
+    public int getConfigItem(String key) {
+        int configItem = 0;
+        try {
+            configItem = mJsonObjectConfig.getInt(key);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return configItem;
+    }
+
 }

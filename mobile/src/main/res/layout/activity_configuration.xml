@@ -20,5 +20,15 @@
         style="@style/Button.Option"
         android:text="@string/str_change_background"
         android:onClick="onClickChangeBackground"/>
-
+    <Button
+        android:id="@+id/button_change_save_configuration"
+        style="@style/Button.BaseWidth"
+        android:layout_marginLeft="@dimen/margin_buttons"
+        android:layout_marginRight="@dimen/margin_buttons"
+        android:layout_marginTop="@dimen/margin_save_top"
+        android:background="@drawable/selector_button_save"
+        android:text="@string/str_save_config"
+        android:onClick="onClickSaveConfig"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/buttons_text_size"/>
 </LinearLayout>

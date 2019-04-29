@@ -1,8 +1,5 @@
 package com.yalantis.watchface.view.configuration;
 
-import android.app.NotificationManager;
-import android.app.PendingIntent;
-import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -17,28 +14,18 @@ import com.yalantis.watchface.R;
 import com.yalantis.watchface.presenter.configuration.ConfigurationPresenter;
 import com.yalantis.watchface.presenter.configuration.ConfigurationPresenterImpl;
 import com.yalantis.watchface.view.BaseGoogleApiActivity;
-//import com.yalantis.watchface.view.ticks_options.TickSetupActivity;
-
-//import butterknife.Bind;
-//import butterknife.ButterKnife;
-//import butterknife.OnClick;
 
 public class ConfigurationActivity extends BaseGoogleApiActivity implements ConfigurationMvpView {
 
     protected ConfigurationPresenter mConfigurationPresenter = new ConfigurationPresenterImpl();
-    private final static String NOTIFICATION_CHANNEL = "channel_name";
-    private final static String CHANNEL_DESCRIPTION = "channel_description";
-    public final static int NOTIFICATION_ID = 1903;
-//    @Bind(R.id.toolbar)
     Toolbar toolbar;
-//    @Bind(R.id.linear_layout_root)
     LinearLayout linearLayoutRoot;
     NotificationCompat.Builder notificacion;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_configuration);
-//        ButterKnife.bind(this);
         toolbar = findViewById(R.id.toolbar);
         linearLayoutRoot = findViewById(R.id.linear_layout_root);
 
@@ -55,12 +42,15 @@ public class ConfigurationActivity extends BaseGoogleApiActivity implements Conf
         mConfigurationPresenter.unregister(this);
     }
 
-//    @OnClick(R.id.button_change_background)
-    void onClickChangeBackground(View view) {
+    public void onClickChangeBackground(View view) {
         mConfigurationPresenter.changeContentImage(isConnected, Constants.BACKGROUND_CHOOSER);
-        //mConfigurationPresenter.sendNotification(this);
     }
 
+    public void onClickSaveConfig(View view) {
+        mConfigurationPresenter.saveConfig();
+        Snackbar.make(linearLayoutRoot, getString(R.string.saved_message), Snackbar.LENGTH_SHORT)
+                .show();
+    }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
