@@ -1,8 +1,5 @@
 package com.yalantis.watchface.view.configuration;
 
-import android.app.NotificationManager;
-import android.app.PendingIntent;
-import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,6 +7,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v4.app.NotificationCompat;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.Button;
 import android.widget.LinearLayout;
 
 import com.yalantis.watchface.Constants;
@@ -17,28 +15,18 @@ import com.yalantis.watchface.R;
 import com.yalantis.watchface.presenter.configuration.ConfigurationPresenter;
 import com.yalantis.watchface.presenter.configuration.ConfigurationPresenterImpl;
 import com.yalantis.watchface.view.BaseGoogleApiActivity;
-//import com.yalantis.watchface.view.ticks_options.TickSetupActivity;
-
-//import butterknife.Bind;
-//import butterknife.ButterKnife;
-//import butterknife.OnClick;
 
 public class ConfigurationActivity extends BaseGoogleApiActivity implements ConfigurationMvpView {
 
     protected ConfigurationPresenter mConfigurationPresenter = new ConfigurationPresenterImpl();
-    private final static String NOTIFICATION_CHANNEL = "channel_name";
-    private final static String CHANNEL_DESCRIPTION = "channel_description";
-    public final static int NOTIFICATION_ID = 1903;
-//    @Bind(R.id.toolbar)
     Toolbar toolbar;
-//    @Bind(R.id.linear_layout_root)
     LinearLayout linearLayoutRoot;
     NotificationCompat.Builder notificacion;
+    Button btn_images, btn_store;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_configuration);
-//        ButterKnife.bind(this);
         toolbar = findViewById(R.id.toolbar);
         linearLayoutRoot = findViewById(R.id.linear_layout_root);
 
@@ -47,6 +35,20 @@ public class ConfigurationActivity extends BaseGoogleApiActivity implements Conf
         mConfigurationPresenter.register(this);
         notificacion = new NotificationCompat.Builder(this);
         notificacion.setAutoCancel(true);
+        btn_images = findViewById(R.id.button_change_background);
+        btn_images.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onClickChangeBackground(view);
+            }
+        });
+        btn_store = findViewById(R.id.button_change_save_configuration);
+        btn_store.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onClickSaveConfig(view);
+            }
+        });
     }
 
     @Override
@@ -55,12 +57,15 @@ public class ConfigurationActivity extends BaseGoogleApiActivity implements Conf
         mConfigurationPresenter.unregister(this);
     }
 
-//    @OnClick(R.id.button_change_background)
     public void onClickChangeBackground(View view) {
         mConfigurationPresenter.changeContentImage(isConnected, Constants.BACKGROUND_CHOOSER);
-        //mConfigurationPresenter.sendNotification(this);
     }
 
+    public void onClickSaveConfig(View view) {
+        mConfigurationPresenter.saveConfig();
+        Snackbar.make(linearLayoutRoot, getString(R.string.saved_message), Snackbar.LENGTH_SHORT)
+                .show();
+    }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {

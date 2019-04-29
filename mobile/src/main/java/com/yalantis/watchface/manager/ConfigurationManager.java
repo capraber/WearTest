@@ -6,7 +6,6 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Environment;
 import android.support.annotation.Nullable;
-import android.util.Log;
 
 import com.yalantis.watchface.Constants;
 import com.yalantis.watchface.R;
@@ -24,6 +23,11 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
+import static com.yalantis.watchface.Constants.DRAWABLE_CONFIGURATION;
+import static com.yalantis.watchface.Constants.FILE_CONFIGURATION;
+import static com.yalantis.watchface.Constants.PATH_CONFIGURATION;
+import static com.yalantis.watchface.Constants.PATH_EXTENSION;
+
 public class ConfigurationManager {
 
     private static final String DEFAULT_JSON_CONFIGURATION = "{seconds_offset:0,minutes_offset:0,hours_offset:0}";
@@ -34,7 +38,7 @@ public class ConfigurationManager {
     public static final String HOURS = "hours";
     public static final String HOURS_AMBIENT = "hrs_ambient";
     public static final String MIN_AMBIENT = "min_ambient";
-
+    public static final int ITEM_CONFIG = 0;
     private Map<String, Bitmap> configMap = new HashMap<>();
     private JSONObject mJsonObjectConfig;
     private File mJsonFile;
@@ -50,11 +54,11 @@ public class ConfigurationManager {
         StringBuilder builder = new StringBuilder();
         JSONObject jsonObject = null;
         try {
-            File sdcard = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "/configuration/");
+            File sdcard = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + PATH_CONFIGURATION);
             if (!sdcard.exists()) {
                 sdcard.mkdirs();
             }
-            mJsonFile = new File(sdcard, "configuration.json");
+            mJsonFile = new File(sdcard, FILE_CONFIGURATION);
             if (!mJsonFile.exists()) {
                 FileWriter writer = new FileWriter(mJsonFile);
                 writer.append(DEFAULT_JSON_CONFIGURATION);
@@ -77,7 +81,6 @@ public class ConfigurationManager {
         }
         return jsonObject;
     }
-
 
     private void fillMap(Resources resources) {
         configMap.put(BACKGROUND, BitmapFactory.decodeResource(resources, R.drawable.bg));
@@ -106,9 +109,9 @@ public class ConfigurationManager {
                 fos.close();
                 updateConfigurationFile();
             } catch (FileNotFoundException e) {
-                Log.d("Configuration", "File not found: " + e.getMessage());
+                //TODO not implemented
             } catch (IOException e) {
-                Log.d("Configuration", "Error accessing file: " + e.getMessage());
+                //TODO not implemented
             }
         }
     }
@@ -120,15 +123,24 @@ public class ConfigurationManager {
         writer.close();
     }
 
-
-
     private File getOutputMediaFile(String fileName) {
         File mediaStorageDir = new File(Environment.getExternalStorageDirectory().getAbsolutePath()
-                + "/drawable-nodpi/");
+                + DRAWABLE_CONFIGURATION);
         if (!mediaStorageDir.exists()) {
             mediaStorageDir.mkdirs();
         }
-        File mediaFile = new File(mediaStorageDir.getPath() + File.separator + fileName + ".png");
+        File mediaFile = new File(mediaStorageDir.getPath() + File.separator + fileName + PATH_EXTENSION);
         return mediaFile;
     }
+
+    public int getConfigItem(String key) {
+        int configItem = ITEM_CONFIG;
+        try {
+            configItem = mJsonObjectConfig.getInt(key);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return configItem;
+    }
+
 }

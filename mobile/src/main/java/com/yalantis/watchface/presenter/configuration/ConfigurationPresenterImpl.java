@@ -1,6 +1,7 @@
 package com.yalantis.watchface.presenter.configuration;
 
 import android.app.Activity;
+import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Intent;
@@ -29,8 +30,11 @@ public class ConfigurationPresenterImpl implements ConfigurationPresenter, SendT
     private final static String NOTIFICATION_TITLE = "Imagen actualizada";
     private final static String NOTIFICATION_TEXT = "Imagen actualizada coon exito en tu watchFace";
     private final static String PATH_IMAGE = "image/*";
-
+    private final static String NOTIFICATION_CHANNEL = "channel_name";
+    private final static String CHANNEL_DESCRIPTION = "channel_description";
     private final static int NOTIFICATION_ID = 1903;
+
+    Bitmap bitmap;
 
     @Override
     public void register(ConfigurationMvpView holder) {
@@ -47,7 +51,7 @@ public class ConfigurationPresenterImpl implements ConfigurationPresenter, SendT
         try {
             if (resultCode == Activity.RESULT_OK) {
                 Uri selectedImageUri = data.getData();
-                Bitmap bitmap = MediaStore.Images.Media.getBitmap(mConfigurationView.getContext().getContentResolver(), selectedImageUri);
+                bitmap = MediaStore.Images.Media.getBitmap(mConfigurationView.getContext().getContentResolver(), selectedImageUri);
                 App.getConfigurationManager().updateField(requestCode, bitmap);
                 new SendToDataLayerThread(Constants.resourceKeyMap.get(requestCode), bitmap, googleApiClient, this).start();
             }
@@ -83,16 +87,17 @@ public class ConfigurationPresenterImpl implements ConfigurationPresenter, SendT
         PendingIntent pendingIntent = PendingIntent.getActivity(configurationActivity, 1, intentAction, PendingIntent.FLAG_ONE_SHOT);
 
         NotificationManager notificationManager = (NotificationManager) configurationActivity.getSystemService(NOTIFICATION_SERVICE);
-        NotificationCompat.Action accion_abrir = new NotificationCompat.Action.Builder(android.R.drawable.ic_menu_send, "Volver App", pendingIntent).build();
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+            NotificationChannel channel = new NotificationChannel(NOTIFICATION_CHANNEL, CHANNEL_DESCRIPTION, NotificationManager.IMPORTANCE_DEFAULT);
+            notificationManager.createNotificationChannel(channel);
+        }
         NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(configurationActivity);
         notificationBuilder.setSmallIcon(R.drawable.ic_launcher);
         notificationBuilder.setContentTitle(NOTIFICATION_TITLE);
         notificationBuilder.setContentText(NOTIFICATION_TEXT);
         notificationBuilder.setContentIntent(pendingIntent);
         notificationBuilder.setAutoCancel(true);
-        notificationBuilder.setStyle(new NotificationCompat.BigTextStyle()
-                .bigText("La aplicación recibio una nueva notificacion , decidi la accion de seguir en esta activity o pasar a la 2da activity."))
-                .addAction (accion_abrir);
+
         notificationManager.notify(NOTIFICATION_ID, notificationBuilder.build());
     }
 
