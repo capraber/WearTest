@@ -1,7 +1,6 @@
 package com.yalantis.watchface.task;
 
 import android.graphics.Bitmap;
-import android.util.Log;
 
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.wearable.Node;
@@ -13,7 +12,9 @@ import java.io.ByteArrayOutputStream;
 public class SendToDataLayerThread extends Thread {
 
     private static final int MAX_SIZE = 200000000;
-
+    private static final int QUALITY = 100;
+    private static final String MESSAGE_SUCESS = " was sent successfully";
+    private static final String FAIL_SIZE = "Big image file, try to use another";
     private String path;
     private Bitmap bitmap;
     private GoogleApiClient mGoogleApiClient;
@@ -29,19 +30,19 @@ public class SendToDataLayerThread extends Thread {
     public void run() {
         NodeApi.GetConnectedNodesResult nodes = Wearable.NodeApi.getConnectedNodes(mGoogleApiClient).await();
         ByteArrayOutputStream stream = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
-        String message = path + " was sent successfully";
+        bitmap.compress(Bitmap.CompressFormat.PNG, QUALITY, stream);
+        String message = path + MESSAGE_SUCESS;
         if (bitmap.getByteCount() < MAX_SIZE) {
             for (Node node : nodes.getNodes()) {
-                Wearable.MessageApi.sendMessage(mGoogleApiClient, node.getId(), path,  stream.toByteArray()).await();
+                Wearable.MessageApi.sendMessage(mGoogleApiClient, node.getId(), path, stream.toByteArray()).await();
             }
         } else {
-            message = "Big image file, try to use another";
+            message = FAIL_SIZE;
         }
         mDataLayerListener.onSuccess(message);
     }
 
-    public interface DataLayerListener  {
+    public interface DataLayerListener {
 
         void onSuccess(String message);
 
