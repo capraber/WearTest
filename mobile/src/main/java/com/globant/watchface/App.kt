@@ -1,7 +1,7 @@
-package com.yalantis.watchface
+package com.globant.watchface
 
 import android.app.Application
-import com.yalantis.watchface.manager.ConfigurationManager
+import com.globant.watchface.manager.ConfigurationManager
 
 class App : Application() {
 

@@ -1,10 +1,10 @@
-package com.yalantis.watchface.presenter.configuration
+package com.globant.watchface.presenter.configuration
 
 import android.content.Intent
 import com.google.android.gms.common.api.GoogleApiClient
-import com.yalantis.watchface.presenter.Presenter
-import com.yalantis.watchface.view.configuration.ConfigurationMvpView
-import com.yalantis.watchface.view.configuration.ConfigurationActivity
+import com.globant.watchface.presenter.Presenter
+import com.globant.watchface.view.configuration.ConfigurationMvpView
+import com.globant.watchface.view.configuration.ConfigurationActivity
 
 
 

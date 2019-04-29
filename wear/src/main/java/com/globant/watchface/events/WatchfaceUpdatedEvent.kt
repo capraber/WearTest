@@ -1,4 +1,4 @@
-package com.yalantis.watchface.events
+package com.globant.watchface.events
 
 import android.graphics.Bitmap
 

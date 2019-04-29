@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.yalantis.watchface" >
+    package="com.globant.watchface" >
 
     <uses-feature android:name="android.hardware.type.watch" />
 
@@ -14,7 +14,7 @@
         android:theme="@android:style/Theme.DeviceDefault" >
 
         <service
-            android:name="com.yalantis.watchface.service.InitialWatchFaceService"
+            android:name="com.globant.watchface.service.InitialWatchFaceService"
             android:allowEmbedded="true"
             android:label="@string/eagle_watchface"
             android:permission="android.permission.BIND_WALLPAPER"
@@ -36,7 +36,7 @@
             </intent-filter>
         </service>
 
-        <service android:name="com.yalantis.watchface.service.WearableListenerService">
+        <service android:name="com.globant.watchface.service.WearableListenerService">
             <intent-filter>
                 <action android:name="com.google.android.gms.wearable.BIND_LISTENER" />
             </intent-filter>

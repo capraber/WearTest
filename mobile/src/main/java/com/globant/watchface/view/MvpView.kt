@@ -1,4 +1,4 @@
-package com.yalantis.watchface.view
+package com.globant.watchface.view
 
 import android.content.Context
 

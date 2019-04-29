@@ -1,4 +1,4 @@
-package com.yalantis.watchface.task
+package com.globant.watchface.task
 
 import android.graphics.Bitmap
 import com.google.android.gms.common.api.GoogleApiClient

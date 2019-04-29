@@ -1,15 +1,15 @@
-package com.yalantis.watchface.view.configuration
+package com.globant.watchface.view.configuration
 
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.support.design.widget.Snackbar
 import android.view.View
-import com.yalantis.watchface.BACKGROUND_CHOOSER
-import com.yalantis.watchface.R
-import com.yalantis.watchface.presenter.configuration.ConfigurationPresenter
-import com.yalantis.watchface.presenter.configuration.ConfigurationPresenterImpl
-import com.yalantis.watchface.view.BaseGoogleApiActivity
+import com.globant.watchface.BACKGROUND_CHOOSER
+import com.globant.watchface.R
+import com.globant.watchface.presenter.configuration.ConfigurationPresenter
+import com.globant.watchface.presenter.configuration.ConfigurationPresenterImpl
+import com.globant.watchface.view.BaseGoogleApiActivity
 import kotlinx.android.synthetic.main.activity_configuration.*
 
 class ConfigurationActivity : BaseGoogleApiActivity(), ConfigurationMvpView {
