@@ -1,5 +1,3 @@
-[![Yalantis](https://github.com/Yalantis/Watchface-Constructor/blob/master/badge.png)](https://yalantis.com/?utm_source=github)
-[![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-Watchface--Constructor-green.svg?style=true)](https://android-arsenal.com/details/1/2866)
 
 # Watchface
 
@@ -7,7 +5,7 @@
 
  Background colors and images
 
-<img src="https://github.com/Yalantis/Watchface-Constructor/blob/master/app_watch_dribbble.gif" alt="alt text" style="width:200;height:200">
+--imagenes
 
 #### Intructions to use
 
