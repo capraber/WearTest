@@ -5,7 +5,7 @@
 
  Background colors and images
 
---imagenes
+<img src="https://github.com/mauroLonghi/WearTest/blob/master/gbwf.png" alt="alt text" style="width:200;height:200">
 
 #### Intructions to use
 
