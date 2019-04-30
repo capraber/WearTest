@@ -1,7 +1,7 @@
 <resources>
-    <string name="app_name">Independent WatchFace</string>
-    <string name="eagle_watchface">Independent</string>
-    <string name="us_flag_watchface">US flag watch face</string>
+    <string name="app_name">Globber WatchFace</string>
+    <string name="eagle_watchface">Globber</string>
+    <string name="us_flag_watchface">Globant watch face</string>
     <string name="title_activity_watchface">WatchfaceActivity</string>
 
 </resources>

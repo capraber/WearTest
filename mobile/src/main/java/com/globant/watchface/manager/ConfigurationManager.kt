@@ -30,10 +30,9 @@ class ConfigurationManager {
     private lateinit var mJsonObjectConfig: JSONObject
     private lateinit var mJsonFile: File
 
-    private val jsonString: JSONObject
-        get() {
+    private val jsonString : JSONObject get(){
             val builder = StringBuilder()
-            lateinit var jsonObject: JSONObject
+            var jsonObject = JSONObject()
             try {
                 val sdcard = File(Environment.getExternalStorageDirectory().absolutePath + PATH_CONFIGURATION)
                 if (!sdcard.exists()) {
@@ -58,7 +57,6 @@ class ConfigurationManager {
             } catch (e: JSONException) {
                 e.printStackTrace()
             }
-
             return jsonObject
         }
 

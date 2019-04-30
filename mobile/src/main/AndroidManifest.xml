@@ -18,29 +18,12 @@
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
-                <action android:name="com.yalantis.watchface.CONFIG_CHRON"/>
+                <action android:name="com.globant.watchface.CONFIG_CHRON"/>
 
                 <category android:name="com.google.android.wearable.watchface.category.COMPANION_CONFIGURATION"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <!--
-                <activity
-                    android:name=".view.ticks_options.TickSetupActivity"
-                    android:label="ConfigurationWatchface">
-
-                    <intent-filter>
-                        <action android:name="android.intent.action.TICK_SETUP"/>
-                        <action android:name="com.yalantis.watchface.CONFIG_CHRON"/>
-
-                        <category android:name="com.google.android.wearable.watchface.category.COMPANION_CONFIGURATION"/>
-                        <category android:name="android.intent.category.DEFAULT"/>
-                    </intent-filter>
-                </activity>
-
-
-            !-->
-
     </application>
 
 </manifest>
