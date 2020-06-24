@@ -11,3 +11,6 @@
 
 1. Clone the repository
 2. Set up your device to android wear emulator like the tutorial to Android Wear
+
+## Documentation
+- [Globant Watchface](https://docs.google.com/document/d/10SzY_nES8iu-ifXCSi8UcMJKIPZIepMDFOtvCtNy78s/edit?usp=sharing)
